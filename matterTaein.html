@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>정보올림피아드 문제 풀이</title>
+</head>
+<body>
+	<h3>501: 출력 - 자가진단 1</h3><br/>
+	<h5>아래 "출력 예"와 같이 출력되는 프로그램을 작성하시오.</h5>
+	<h6>출력 예 : </h6><p/>
+	<h6>Fun Programming!</h6>
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<button onclick="solve();">출력</button>
+	<p id="result501"></p>
+
+	<script>
+		// javaScript 작성
+		function solve(){
+			var text = "Fun Programming!";
+			document.getElementById('result501').innerHTML = text;
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+	<h3>533 : 선택제어문 - 자가진단 6</h3><br/>
+	<h5>남자는 'M' 여자는 'F'로 나타내기로 하고 18세 이상을 성인이라고 하자. 성별('M', 'F')과 나이를 입력받아 "MAN"(성인남자), "WOMAN"(성인여자), "BOY"(미성년남자), "GIRL"(미성년여자)을 구분하여 출력하는 프로그램을 작성하시오.</h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>F 15</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>GIRL</h6>
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- ===================== 문제 풀기 ===================== -->
+	
+	<!-- 입력 -->
+	성별 : <input type="text" id="gender"/>
+	나이 : <input type="text" id="age"/>
+
+	<button onclick="solve();">출력</button>
+	<p id="result533"></p>
+
+	<script>
+		// javaScript 작성
+		function solve(){
+			var gender = document.getElementById('gender').value;
+			var age = document.getElementById('age').value;
+
+			console.log("gender : " + gender);
+			console.log("age : " + age);
+			// 18 세 이상은 성인으로 구분하기 때문에
+			// 성인 구분 기준을 적는다
+			var adultAge = 18;
+			// 출력 데이터 준비
+			var man = "MAN";
+			var woman = "woman";
+			var boy = "boy";
+			var girl = "girl";
+
+			// 18 세 이상 일 때 
+			if(age >= 18){
+				// 남자인 경우
+				if(gender == "M"){
+					document.getElementById('result533').innerHTML = man;
+				}
+				// 여자인 경우
+				if(gender == "F"){
+					document.getElementById('result533').innerHTML = woman;
+				}
+			}
+
+			if(age < 18){
+				// 남자인 경우
+				if(gender == "M"){
+					document.getElementById('result533').innerHTML = boy;
+				}
+				// 여자인 경우
+				if(gender == "F"){
+					document.getElementById('result533').innerHTML = girl;
+				}
+			}
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+<h3>528 : 선택제어문 - 자가진단1</h3><br/>
+	<h5>정수를 입력받아 첫 줄에 입력 받은 숫자를 출력하고 둘째 줄에 음수이면 “minus” 라고 출력하는 프로그램을 작성하시오.</h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>-5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>-5<p/>
+	minus</h6>
+	<h6>입력 예 : </h6><p/>
+	<h6>5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>5</h6>
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!-- 
+		1. 정수를 입력받는다.
+		2. 입력받은 숫자를 출력
+		3. 음수이면 둘째줄에 'minus' 라고 출력
+	-->
+
+	<!-- 1. 정수를 입력받는다. -->
+	<input type="text" id="input"/>
+	<button onclick="solve3();">출력</button>
+
+	<!-- 2. 입력받은 숫자를 출력 -->
+	<p id="result528"></p>
+	<p id="result528-1"></p>
+
+	<script>
+		// javaScript 작성
+		function solve3(){
+			var inputNumber = document.getElementById('input').value;	
+			console.log(inputNumber);
+
+			// 3. 음수이면 minus라고 출력
+			if(inputNumber < 0){
+				// 음수일 경우
+				// 입력받은 숫자 출력
+				document.getElementById('result528').innerHTML = inputNumber;
+				// minus라고 출력
+				document.getElementById('result528-1').innerHTML = "minus";
+			}
+
+			// 양수일 경우 그대로 출력만 할 것
+			if(inputNumber > 0){
+				document.getElementById('result528').innerHTML = inputNumber;
+			}
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+<h3>529 : 선택제어문 - 자가진단2</h3><br/>
+	<h5>“몸무게+100-키”를 비만수치 공식이라고 하자.
+    키와 몸무게를 자연수로 입력받아 첫 번째 줄에 비만수치를 출력하고, 비만수치가 0보다 크면 다음줄에 비만("Obesity")이라는 메시지를 출력하는 프로그램을 작성하시오. (출력형식은 아래 출력 예를 참고하세요.)
+     </h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>-5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>-5<p/>
+	minus</h6>
+	<h6>입력 예 : </h6><p/>
+	<h6>5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>5</h6>
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!--입력부-->
+	키 : <input type="text" id="height"/></p>
+	몸무게 : <input type="text" id="weight"/></p>
+	<button onclick="solve529()">입력</button>
+
+	<!--출력부-->
+	<p id="result529"></p>
+	<p id="result529-1"></p>
+	<script>
+		// javaScript 작성
+		
+		
+		function solve529(){
+			//사용자가 입력한 키 data를 받아오기
+			var hei = document.getElementById('height').value;
+			var wei = document.getElementById('weight').value;
+			var z = Number(wei)+100-Number(hei);
+
+			// result529 id 값을 가진 태그에 테이터를 보여주기
+			if(z < 0) {
+				document.getElementById('result529').innerHTML= z;
+			} else { 
+                document.getElementById('result529').innerHTML= z;
+                document.getElementById('result529-1').innerHTML = "Obesity";
+			}
+			
+		}
+		
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+<h3>532 : 선택제어문 - 자가진단5</h3><br/>
+	<h5>두 개의 실수를 입력받아 모두 4.0 이상이면 "A", 모두 3.0 이상이면 "B", 아니면 "C" 라고 출력하는 프로그램을 작성하시오.
+
+    </h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>-5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>-5<p/>
+	minus</h6>
+	<h6>입력 예 : </h6><p/>
+	<h6>5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>5</h6>
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!--입력부-->
+	실수 : <input type="text" id="Number1"/></p>
+	실수  : <input type="text" id="Number2"/></p>
+	<button onclick="solve532()">입력</button>
+
+	<!--출력부-->
+	<p id="result532"></p>
+	
+	<script>
+		// javaScript 작성
+		
+		
+		function solve532(){
+			//사용자가 입력한 키 data를 받아오기
+			var hei = document.getElementById('Number1').value;
+			var wei = document.getElementById('Number2').value;
+			
+
+			// result532 id 값을 가진 태그에 테이터를 보여주기
+			if(wei >= 4.0 && hei >= 4.0) {
+				document.getElementById('result532').innerHTML= "A";
+			} else if(wei >= 3.0 && hei >= 3.0) {
+                document.getElementById('result532').innerHTML= "B";
+            } else{
+            	 document.getElementById('result532').innerHTML= "C";
+            }
+			
+		}
+
+		
+	</script>
+
+
+<hr/><!--문제구분 하는 hr태그 -->
+<h3>530 : 선택제어문 - 자가진단7</h3><br/>
+	<h5>나이를 입력받아 20살 이상이면 "adult"라고 출력하고 그렇지 않으면 몇 년후에 성인이 되는지를 "○ years later"라는 메시지를 출력하는 프로그램을 작성하시오.
+
+   </h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>-5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>-5<p/>
+	minus</h6>
+	<h6>입력 예 : </h6><p/>
+	<h6>5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>5</h6>
+	
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!--입력부-->
+	Number : <input type="text" id="year"/></p>
+	<button onclick="solve530()">입력</button>
+
+	<!--출력부-->
+	<p id="result530"></p>
+
+	
+	<script>
+		// javaScript 작성
+		// ageNumber은 입력하는 나이를 나타낸다.
+		
+		
+		function solve530(){
+			//사용자가 입력한 키 data를 받아오기
+			
+			var ageNumber = document.getElementById('year').value;
+			console.log("ageNumber : " + ageNumber);
+			var adult = 20;
+			
+			var sult = 20-Number(ageNumber)+"years later"
+	
+
+			// result532 id 값을 가진 태그에 테이터를 보여주기
+			if(ageNumber >= 20) {
+				document.getElementById('result530').innerHTML= "adult"
+			} else  {
+                document.getElementById('result530').innerHTML= sult;
+            } 
+			
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+<h3>534 : 선택제어문 - 자가진단7</h3><br/>
+	<h5>영문 대문자를 입력받아 
+
+        'A'이면 “Excellent”, 
+
+        'B'이면 “Good”, 
+
+        'C'이면 “Usually”, 
+
+        'D'이면 “Effort”, 
+
+        'F'이면 “Failure”, 
+
+        그 외 문자이면 “error” 라고 출력하는 프로그램을 작성하시오.
+
+
+   </h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>-5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>-5<p/>
+	minus</h6>
+	<h6>입력 예 : </h6><p/>
+	<h6>5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>5</h6>
+	
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!--입력부-->
+	Number : <input type="text" id="english"/></p>
+	<button onclick="solve534()">입력</button>
+
+	<!--출력부-->
+	<p id="result534"></p>
+
+	
+	<script>
+		// javaScript 작성
+		// ageNumber은 입력하는 나이를 나타낸다.
+		
+		
+		function solve534(){
+			//사용자가 입력한 키 data를 받아오기
+			
+			var letter = document.getElementById('english').value;
+
+			
+
+			// result532 id 값을 가진 태그에 테이터를 보여주기
+			if(letter == "A") {
+				document.getElementById('result534').innerHTML= "Excellet";
+			} else if(letter == "B"){
+                document.getElementById('result534').innerHTML= "Good";
+            } else if(letter == "C"){
+                document.getElementById('result534').innerHTML= "Usually";
+            } else if(letter == "D"){
+                document.getElementById('result534').innerHTML= "Effort";
+            } else if(letter == "F"){
+                document.getElementById('result534').innerHTML= "Failure";
+            } else {
+                document.getElementById('result534').innerHTML= "Error";
+            } 
+			
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+<h3>534 : 선택제어문 - 자가진단7</h3><br/>
+	<h5>영문 대문자를 입력받아 
+
+        'A'이면 “Excellent”, 
+
+        'B'이면 “Good”, 
+
+        'C'이면 “Usually”, 
+
+        'D'이면 “Effort”, 
+
+        'F'이면 “Failure”, 
+
+        그 외 문자이면 “error” 라고 출력하는 프로그램을 작성하시오.
+
+
+   </h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>-5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>-5<p/>
+	minus</h6>
+	<h6>입력 예 : </h6><p/>
+	<h6>5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>5</h6>
+	
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!--입력부-->
+	Number : <input type="text" id="english"/></p>
+	<button onclick="solve534()">입력</button>
+
+	<!--출력부-->
+	<p id="result534"></p>
+
+	
+	<script>
+		// javaScript 작성
+		// ageNumber은 입력하는 나이를 나타낸다.
+		
+		
+		function solve534(){
+			//사용자가 입력한 키 data를 받아오기
+			
+			var letter = document.getElementById('english').value;
+			
+			
+
+			// result532 id 값을 가진 태그에 테이터를 보여주기
+			if(letter == "A") {
+				document.getElementById('result534').innerHTML= "Excellet";
+			} else if(letter == "B"){
+                document.getElementById('result534').innerHTML= "Good";
+            } else if(letter == "C"){
+                document.getElementById('result534').innerHTML= "Usually";
+            } else if(letter == "D"){
+                document.getElementById('result534').innerHTML= "Effort";
+            } else if(letter == "F"){
+                document.getElementById('result534').innerHTML= "Failure";
+            } else {
+                document.getElementById('result534').innerHTML= "Error";
+            } 
+			
+		}
+	</script>
+<hr/><!--문제구분 하는 hr태그 -->
+<h3>122 : 선택제어문 - 자가진단7</h3><br/>
+	<h5>년도를 입력받아 윤년(leap year)인지 평년(common year)인지 판단하는 프로그램을 작성하시오.
+
+   </h5>
+	<h6>입력 예 : </h6><p/>
+	<h6>400으로 나누어떨어지면 윤년이다.
+    또는 4로 나누어떨어지고 100으로 나누어떨어지지 않으면 윤년이다.
+     나머지는 모두 평년이다.</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>-5<p/>
+	minus</h6>
+	<h6>입력 예 : </h6><p/>
+	<h6>5</h6>
+	<h6>출력 예 : </h6><p/>
+	<h6>5</h6>
+	
+
+	<h2>풀이 -------------------------------------------------</h2>
+	<!-- 문제 풀기 -->
+
+	<!--입력부-->
+	Number : <input type="text" id="date"/></p>
+	<button onclick="solve122()">입력</button>
+
+	<!--출력부-->
+	<p id="result122"></p>
+
+	
+	<script>
+		// javaScript 작성
+		// ageNumber은 입력하는 나이를 나타낸다.
+		
+		
+		function solve122(){
+			//사용자가 입력한 키 data를 받아오기
+			
+			var once = document.getElementById('date').value;
+			
+			
+
+			// result532 id 값을 가진 태그에 테이터를 보여주기
+			if(once % 400 && once % 4 | once & 100) {
+				document.getElementById('result534').innerHTML= "Excellet";
+			} else if(letter == "B"){
+                document.getElementById('result534').innerHTML= "Good";
+            } else if(letter == "C"){
+                document.getElementById('result534').innerHTML= "Usually";
+            } else if(letter == "D"){
+                document.getElementById('result534').innerHTML= "Effort";
+            } else if(letter == "F"){
+                document.getElementById('result534').innerHTML= "Failure";
+            } else {
+                document.getElementById('result534').innerHTML= "Error";
+            } 
+			
+		}
+	</script>
+
+
+
+	
+</body>
+</html>
